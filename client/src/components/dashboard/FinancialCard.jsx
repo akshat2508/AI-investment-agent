@@ -1,12 +1,11 @@
 import Card from "../ui/Card";
 
 function FinancialCard({ market }) {
-
   if (!market) {
     return (
       <Card>
-        <p className="text-slate-500">
-          Financial metrics will appear here.
+        <p className="font-mono text-sm text-[#5B6B7A]">
+          NO FEED — financial metrics will appear here.
         </p>
       </Card>
     );
@@ -25,26 +24,25 @@ function FinancialCard({ market }) {
 
   return (
     <Card>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {metrics.map(([label, value]) => (
           <div
             key={label}
-            className="rounded-xl border p-4"
+            className="relative overflow-hidden rounded-md border border-[#212B35] bg-[#0A0E13] p-4"
           >
-            <p className="text-sm text-slate-500">
+            <span className="absolute left-0 top-0 h-full w-[3px] bg-[#7C93F5]/40" />
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#5B6B7A]">
               {label}
             </p>
-
-            <p className="mt-2 text-xl font-bold">
+            <p
+              style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+              className="mt-2 text-xl font-medium text-[#E7ECF1]"
+            >
               {value}
             </p>
           </div>
         ))}
-
       </div>
-
     </Card>
   );
 }
