@@ -6,13 +6,15 @@ import NewsCard from "../components/dashboard/NewsCard";
 import RecommendationCard from "../components/dashboard/RecommendationCard";
 import { useState } from "react";
 import { useResearch } from "../hooks/useResearch";
-
+import Timeline from "../components/dashboard/Timeline";
+import { useTimeline } from "../hooks/useTimeline";
 function Home() {
   const [company, setCompany] = useState("");
   const { analysis, loading, error, analyzeCompany } = useResearch();
-
+  const { events, clearTimeline } = useTimeline();
   const handleAnalyze = () => {
     if (!company.trim()) return;
+    clearTimeline();
     analyzeCompany(company);
   };
 
@@ -57,6 +59,10 @@ function Home() {
           />
         </div>
       </section>
+
+      <div className="mx-auto mt-10 max-w-6xl px-6">
+    <Timeline events={events} />
+</div>
 
       <section className="mx-auto max-w-6xl space-y-10 px-6 pb-24">
         <div>

@@ -4,8 +4,8 @@ function CompanyCard({ company }) {
   if (!company) {
     return (
       <Card>
-        <p className="font-mono text-sm text-[#5B6B7A]">
-          NO TARGET LOADED — search a company to begin analysis.
+        <p className="text-sm text-[#9C9EA3]">
+          No company loaded yet — search above to begin analysis.
         </p>
       </Card>
     );
@@ -13,39 +13,34 @@ function CompanyCard({ company }) {
 
   return (
     <Card>
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-6 sm:flex-row">
         <img
           src={`https://logo.clearbit.com/${new URL(company.website).hostname}`}
           alt={company.name}
-          className="h-16 w-16 rounded-lg border border-[#212B35] bg-[#0A0E13] p-2"
+          className="h-14 w-14 shrink-0 rounded-md border border-[#E4E4E1] bg-white p-2"
           onError={(e) => (e.target.style.display = "none")}
         />
 
         <div className="flex-1">
-          <h2
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            className="text-2xl font-semibold text-[#E7ECF1]"
-          >
+          <h2 className="text-2xl font-semibold tracking-tight text-[#16181C]">
             {company.name}
           </h2>
 
-          <p className="mt-2 leading-6 text-[#8A99A8]">
-            {company.description}
-          </p>
+          <p className="mt-2 leading-7 text-[#5B5D63]">{company.description}</p>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
             <Info title="Industry" value={company.industry} />
             <Info title="Sector" value={company.sector} />
             <Info title="Country" value={company.country} />
             <Info title="Employees" value={company.employees?.toLocaleString()} />
-            <Info 
+            <Info
               title="Website"
               value={
                 <a
                   href={company.website}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[#7C93F5] underline decoration-[#7C93F5]/30 underline-offset-2 hover:decoration-[#7C93F5]"
+                  className="text-[#1F3A5F] underline decoration-[#1F3A5F]/30 underline-offset-2 hover:decoration-[#1F3A5F]"
                 >
                   Visit ↗
                 </a>
@@ -60,11 +55,14 @@ function CompanyCard({ company }) {
 
 function Info({ title, value }) {
   return (
-    <div className="rounded-md border border-[#212B35] bg-[#0A0E13] p-3">
-      <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#5B6B7A]">
+    <div className="rounded-md border border-[#E4E4E1] p-3">
+      <p
+        style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+        className="text-[10px] uppercase tracking-[0.12em] text-[#9C9EA3]"
+      >
         {title}
       </p>
-      <p className="mt-1 font-semibold text-[#E7ECF1]">{value || "—"}</p>
+      <p className="mt-1 font-medium text-[#16181C]">{value || "—"}</p>
     </div>
   );
 }

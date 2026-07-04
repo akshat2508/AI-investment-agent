@@ -4,39 +4,38 @@ function FinancialCard({ market }) {
   if (!market) {
     return (
       <Card>
-        <p className="font-mono text-sm text-[#5B6B7A]">
-          NO FEED — financial metrics will appear here.
+        <p className="text-sm text-[#9C9EA3]">
+          No data yet — financial metrics will appear here.
         </p>
       </Card>
     );
   }
 
   const metrics = [
-    ["Current Price", `$${market.currentPrice}`],
-    ["Market Cap", `$${(market.marketCap / 1e9).toFixed(2)} B`],
-    ["P/E Ratio", market.peRatio],
+    ["Current price", `$${market.currentPrice}`],
+    ["Market cap", `$${(market.marketCap / 1e9).toFixed(2)}B`],
+    ["P/E ratio", market.peRatio],
     ["EPS", market.eps],
-    ["52W High", `$${market.fiftyTwoWeekHigh}`],
-    ["52W Low", `$${market.fiftyTwoWeekLow}`],
+    ["52W high", `$${market.fiftyTwoWeekHigh}`],
+    ["52W low", `$${market.fiftyTwoWeekLow}`],
     ["Exchange", market.exchange],
     ["Currency", market.currency],
   ];
 
   return (
     <Card>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-[#E4E4E1] bg-[#E4E4E1] md:grid-cols-4">
         {metrics.map(([label, value]) => (
-          <div
-            key={label}
-            className="relative overflow-hidden rounded-md border border-[#212B35] bg-[#0A0E13] p-4"
-          >
-            <span className="absolute left-0 top-0 h-full w-[3px] bg-[#7C93F5]/40" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#5B6B7A]">
+          <div key={label} className="bg-white p-4">
+            <p
+              style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+              className="text-[10px] uppercase tracking-[0.12em] text-[#9C9EA3]"
+            >
               {label}
             </p>
             <p
               style={{ fontFamily: "'IBM Plex Mono', monospace" }}
-              className="mt-2 text-xl font-medium text-[#E7ECF1]"
+              className="mt-2 text-lg font-medium text-[#16181C]"
             >
               {value}
             </p>

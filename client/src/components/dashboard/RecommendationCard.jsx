@@ -4,8 +4,8 @@ function RecommendationCard({ analysis }) {
   if (!analysis) {
     return (
       <Card>
-        <p className="font-mono text-sm text-[#5B6B7A]">
-          AWAITING VERDICT — AI recommendation will appear here.
+        <p className="text-sm text-[#9C9EA3]">
+          No verdict yet — the AI recommendation will appear here.
         </p>
       </Card>
     );
@@ -20,12 +20,12 @@ function RecommendationCard({ analysis }) {
 
   const palette =
     recommendation.decision === "Invest"
-      ? { text: "text-[#2FD180]", ring: "#2FD180" }
+      ? { text: "text-[#1F7A5C]", ring: "#1F7A5C" }
       : recommendation.decision === "Hold"
-      ? { text: "text-[#F5B942]", ring: "#F5B942" }
-      : { text: "text-[#F2596B]", ring: "#F2596B" };
+      ? { text: "text-[#B7791F]", ring: "#B7791F" }
+      : { text: "text-[#B23A3A]", ring: "#B23A3A" };
 
-  const r = 54;
+  const r = 50;
   const circumference = 2 * Math.PI * r;
   const offset = circumference * (1 - confidence / 100);
 
@@ -33,35 +33,27 @@ function RecommendationCard({ analysis }) {
     <Card>
       <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#5B6B7A]">
+          <p
+            style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+            className="text-[11px] uppercase tracking-[0.15em] text-[#9C9EA3]"
+          >
             Recommendation
           </p>
-          <h2
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            className={`mt-1 text-4xl font-bold ${palette.text}`}
-          >
+          <h2 className={`mt-1 text-4xl font-bold tracking-tight ${palette.text}`}>
             {recommendation.decision}
           </h2>
         </div>
 
-        {/* signature confidence dial */}
-        <div className="relative h-32 w-32 shrink-0">
+        <div className="relative h-28 w-28 shrink-0">
           <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
-            <circle
-              cx="60"
-              cy="60"
-              r={r}
-              fill="none"
-              stroke="#212B35"
-              strokeWidth="8"
-            />
+            <circle cx="60" cy="60" r={r} fill="none" stroke="#E4E4E1" strokeWidth="7" />
             <circle
               cx="60"
               cy="60"
               r={r}
               fill="none"
               stroke={palette.ring}
-              strokeWidth="8"
+              strokeWidth="7"
               strokeLinecap="round"
               strokeDasharray={circumference}
               strokeDashoffset={offset}
@@ -71,26 +63,24 @@ function RecommendationCard({ analysis }) {
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span
               style={{ fontFamily: "'IBM Plex Mono', monospace" }}
-              className="text-2xl font-semibold text-[#E7ECF1]"
+              className="text-xl font-semibold text-[#16181C]"
             >
               {confidence.toFixed(0)}%
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-[#5B6B7A]">
+            <span className="text-[9px] uppercase tracking-[0.12em] text-[#9C9EA3]">
               Confidence
             </span>
           </div>
         </div>
       </div>
 
-      <p className="mt-8 leading-7 text-[#8A99A8]">
-        {recommendation.reasoning}
-      </p>
+      <p className="mt-8 leading-7 text-[#5B5D63]">{recommendation.reasoning}</p>
 
       <div className="mt-10 grid gap-3 sm:grid-cols-2">
-        <Swot letter="S" title="Strengths" items={swot.strengths} accent="#2FD180" />
-        <Swot letter="W" title="Weaknesses" items={swot.weaknesses} accent="#F2596B" />
-        <Swot letter="O" title="Opportunities" items={swot.opportunities} accent="#7C93F5" />
-        <Swot letter="T" title="Threats" items={swot.threats} accent="#F5B942" />
+        <Swot letter="S" title="Strengths" items={swot.strengths} accent="#1F7A5C" />
+        <Swot letter="W" title="Weaknesses" items={swot.weaknesses} accent="#B23A3A" />
+        <Swot letter="O" title="Opportunities" items={swot.opportunities} accent="#1F3A5F" />
+        <Swot letter="T" title="Threats" items={swot.threats} accent="#B7791F" />
       </div>
     </Card>
   );
@@ -98,26 +88,21 @@ function RecommendationCard({ analysis }) {
 
 function Swot({ letter, title, items, accent }) {
   return (
-    <div className="rounded-md border border-[#212B35] bg-[#0A0E13] p-4">
+    <div className="rounded-md border border-[#E4E4E1] p-4">
       <div className="flex items-center gap-2">
         <span
           style={{ borderColor: accent, color: accent }}
-          className="flex h-5 w-5 items-center justify-center rounded border font-mono text-[10px] font-semibold"
+          className="flex h-5 w-5 items-center justify-center rounded border text-[10px] font-semibold"
         >
           {letter}
         </span>
-        <h3
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          className="font-semibold text-[#E7ECF1]"
-        >
-          {title}
-        </h3>
+        <h3 className="font-semibold text-[#16181C]">{title}</h3>
       </div>
 
       <ul className="mt-3 space-y-2 pl-1">
         {items.map((item, index) => (
-          <li key={index} className="flex gap-2 text-sm text-[#8A99A8]">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#5B6B7A]" />
+          <li key={index} className="flex gap-2 text-sm leading-6 text-[#5B5D63]">
+            <span style={{ backgroundColor: accent }} className="mt-2 h-1 w-1 shrink-0 rounded-full" />
             {item}
           </li>
         ))}

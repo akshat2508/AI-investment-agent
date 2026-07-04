@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const researchRoutes = require("./routes/research.routes");
-
+const timelineRoutes = require("./routes/timeline.routes");
 const app = express();
 
 app.use(cors());
@@ -16,5 +16,5 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/research", researchRoutes);
-
+app.use("/api/timeline" , timelineRoutes);
 module.exports = app;
