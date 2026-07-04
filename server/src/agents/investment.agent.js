@@ -1,3 +1,5 @@
+const withTimeline = require("../utils/withTimeline");
+
 const {
 
     getCompanyProfile
@@ -77,15 +79,28 @@ async function analysisNode(state) {
     };
 
 }
-
 module.exports = {
+  companyNode: withTimeline(
+    "company",
+    "Fetching Company Profile",
+    companyNode
+  ),
 
-    companyNode,
+  marketNode: withTimeline(
+    "market",
+    "Analyzing Financial Data",
+    marketNode
+  ),
 
-    marketNode,
+  newsNode: withTimeline(
+    "news",
+    "Collecting Latest News",
+    newsNode
+  ),
 
-    newsNode,
-
+  analysisNode: withTimeline(
+    "analysis",
+    "Generating AI Investment Report",
     analysisNode
-
+  ),
 };
