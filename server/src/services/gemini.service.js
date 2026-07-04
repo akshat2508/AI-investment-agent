@@ -38,7 +38,12 @@ ${JSON.stringify(researchData, null, 2)}
     contents: prompt,
   });
 
-  return response.text;
+const cleanResponse = response.text
+    .replace(/```json/g, "")
+    .replace(/```/g, "")
+    .trim();
+
+return JSON.parse(cleanResponse);
 };
 
 module.exports = {

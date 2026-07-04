@@ -20,8 +20,7 @@ const analyzeCompany = async (req, res) => {
       data: analysis,
     });
   } catch (error) {
-    console.error(error);
-
+console.error(error.response?.data || error.message || error);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",

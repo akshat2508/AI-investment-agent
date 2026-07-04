@@ -1,41 +1,41 @@
-const analyzeCompanyResearch = async (company) => {
-  return {
-    company: {
-      name: company,
-      industry: "Technology",
-      headquarters: "California, USA",
-      ceo: "Sample CEO",
-    },
+const { getCompanyProfile } = require("./company.service");
+const { getMarketData } = require("./market.service");
+const { getCompanyNews } = require("./news.service");
+const { analyzeInvestment } = require("./gemini.service");
 
-    financials: {
-      revenueGrowth: "18%",
-      peRatio: "28",
-      debtToEquity: "0.42",
-    },
+const analyzeCompanyResearch = async (companyName) => {
+    try {
 
-    news: [
-      {
-        headline: "Company launches new AI product",
-        sentiment: "Positive",
-      },
-    ],
+       console.log("Step 1");
+const company = await getCompanyProfile(companyName);
 
-    swot: {
-      strengths: ["Strong brand"],
-      weaknesses: ["High valuation"],
-      opportunities: ["AI Expansion"],
-      threats: ["Competition"],
-    },
+console.log("Step 2");
+const market = await getMarketData(company.symbol);
 
-    recommendation: {
-      decision: "INVEST",
-      confidence: 87,
-      reasoning:
-        "Strong fundamentals with positive market momentum.",
-    },
-  };
+console.log("Step 3");
+const news = await getCompanyNews(companyName);
+
+console.log("Step 4");
+const aiResult = await analyzeInvestment({
+    company,
+    market,
+    news
+});
+        console.log("✅ Gemini");
+
+        return {
+            company,
+            market,
+            news,
+            analysis:aiResult
+        };
+
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
 };
 
 module.exports = {
-  analyzeCompanyResearch,
+    analyzeCompanyResearch
 };
