@@ -5,8 +5,14 @@ const getCompanyProfile = async (companyName) => {
     const search = await yahooFinance.search(companyName);
 
     if (!search.quotes.length) {
-      throw new Error("Company not found");
-    }
+    const error = new Error(
+        `No publicly listed company found for "${companyName}".`
+    );
+
+    error.statusCode = 404;
+
+    throw error;
+}
 
     const symbol = search.quotes[0].symbol;
 

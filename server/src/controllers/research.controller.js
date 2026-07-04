@@ -21,10 +21,10 @@ const analyzeCompany = async (req, res) => {
     });
   } catch (error) {
 console.error(error.response?.data || error.message || error);
-    return res.status(500).json({
-      success: false,
-      message: "Internal Server Error",
-    });
+    return res.status(error.statusCode || 500).json({
+    success: false,
+    message: error.message,
+});
   }
 };
 

@@ -1,7 +1,6 @@
 import Card from "../ui/Card";
 
 function RecommendationCard({ analysis }) {
-
   if (!analysis) {
     return (
       <Card>
@@ -11,9 +10,13 @@ function RecommendationCard({ analysis }) {
       </Card>
     );
   }
-
+  
   const { recommendation, swot } = analysis;
-
+  
+  const confidence =
+  recommendation.confidence <= 1
+      ? recommendation.confidence * 100
+      : recommendation.confidence;
   const color =
     recommendation.decision === "Invest"
       ? "text-green-600"
@@ -45,7 +48,7 @@ function RecommendationCard({ analysis }) {
           </p>
 
           <p className="text-3xl font-bold">
-            {(recommendation.confidence * 100).toFixed(0)}%
+            {confidence.toFixed(0)}%
           </p>
 
         </div>
