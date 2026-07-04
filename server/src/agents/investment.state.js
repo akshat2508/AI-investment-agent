@@ -1,10 +1,17 @@
-const investmentState = {
-  companyName: "",
-  company: null,
-  financials: null,
-  news: [],
-  swot: null,
-  recommendation: null,
-};
+const { Annotation } = require("@langchain/langgraph");
 
-module.exports = investmentState;
+const InvestmentState = Annotation.Root({
+
+    companyName: Annotation(),
+
+    company: Annotation(),
+
+    market: Annotation(),
+
+    news: Annotation(),
+
+    analysis: Annotation()
+
+});
+
+module.exports = InvestmentState;

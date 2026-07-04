@@ -1,41 +1,19 @@
-const { getCompanyProfile } = require("./company.service");
-const { getMarketData } = require("./market.service");
-const { getCompanyNews } = require("./news.service");
-const { analyzeInvestment } = require("./gemini.service");
+const investmentGraph = require("../agents/investment.graph");
 
 const analyzeCompanyResearch = async (companyName) => {
-    try {
 
-       console.log("Step 1");
-const company = await getCompanyProfile(companyName);
+    const result = await investmentGraph.invoke({
 
-console.log("Step 2");
-const market = await getMarketData(company.symbol);
+        companyName
 
-console.log("Step 3");
-const news = await getCompanyNews(companyName);
+    });
 
-console.log("Step 4");
-const aiResult = await analyzeInvestment({
-    company,
-    market,
-    news
-});
-        console.log("✅ Gemini");
+    return result;
 
-        return {
-            company,
-            market,
-            news,
-            analysis:aiResult
-        };
-
-    } catch (err) {
-        console.error(err);
-        throw err;
-    }
 };
 
 module.exports = {
+
     analyzeCompanyResearch
+
 };
