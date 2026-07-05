@@ -1,5 +1,5 @@
 import { LayoutGrid, Search, Star, Bookmark, Settings, Activity } from "lucide-react";
-
+import logo from "../../assets/logo.png"; // adjust the path as needed
 const NAV_ITEMS = [
   { label: "Overview", icon: LayoutGrid },
   { label: "Research", icon: Search },
@@ -12,9 +12,13 @@ function Sidebar({ active = "Overview" }) {
   return (
     <aside className="hidden w-64 flex-col border-r border-[#1C2530] bg-[#070A0F] px-4 py-5 lg:flex">
       <div className="flex items-center gap-3 px-2">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#7C93F5] to-[#3ECF8E]">
-          <Activity size={18} className="text-[#05070A]" />
-        </div>
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#000000] to-[#000000]">
+  <img
+    src={logo}
+    alt="AI Research Agent"
+    className="h-10 w-10 object-contain"
+  />
+</div>
         <div>
           <p
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
