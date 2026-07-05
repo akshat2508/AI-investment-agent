@@ -6,6 +6,18 @@
 
 ---
 
+
+
+
+## 🌐 Live Application
+
+**Try the deployed application here:**
+
+[🔗 **https://ai-investment-agent.vercel.app**
+](https://ai-investment-agent-insideiim.vercel.app/)
+---
+
+
 ## Overview
 
 The AI Investment Research Agent simulates the workflow of a professional equity research analyst by orchestrating a multi-stage AI pipeline using **LangGraph**.
