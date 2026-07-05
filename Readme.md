@@ -2,7 +2,7 @@
 
 > **An AI-native investment research workspace powered by LangGraph and Google Gemini that autonomously researches public companies, evaluates financial data and market sentiment, and generates transparent investment recommendations through a real-time execution pipeline.**
 
-![Dashboard](docs/screenshots/01-home.png)
+![Dashboard](docs/screenshots/01-home-dashboard.png)
 
 ---
 
