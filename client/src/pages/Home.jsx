@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Sidebar from "../components/dashboard/Sidebar";
 import Topbar from "../components/dashboard/Topbar";
-import ExecutionFlow from "../components/dashboard/ExecutionFlow";
-import ExecutionTimeline from "../components/dashboard/ExecutionTimeline";
-import ResultsPanel from "../components/dashboard/ResultsPanel";
+import ExecutionFlow from "../components/dashboard/Executionflow";
+import ExecutionTimeline from "../components/dashboard/Executiontimeline";
+import ResultsPanel from "../components/dashboard/Resultspanel";
 import SectionTitle from "../components/common/SectionTitle";
 import CompanyCard from "../components/dashboard/CompanyCard";
 import FinancialCard from "../components/dashboard/FinancialCard";
@@ -11,7 +11,7 @@ import NewsCard from "../components/dashboard/NewsCard";
 import RecommendationCard from "../components/dashboard/RecommendationCard";
 import { useResearch } from "../hooks/useResearch";
 import { useTimeline } from "../hooks/useTimeline";
-import { exportReport } from "../utils/exportReport";
+import { exportReport } from "../utils/Exportreport";
 
 function Home() {
   const [company, setCompany] = useState("");
