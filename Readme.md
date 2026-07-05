@@ -74,7 +74,7 @@ The application is designed as an AI-native research workspace rather than a tra
 
 ## Home Workspace
 
-![Home](docs/screenshots/01-home.png)
+![Home](docs/screenshots/01-home-dashboard.png)
 
 The landing page provides a clean AI workspace where users can initiate a new investment investigation.
 
@@ -90,7 +90,7 @@ The LangGraph workflow streams every execution stage in real time, allowing user
 
 ## Investment Recommendation
 
-![Recommendation](docs/screenshots/03-recommendation.png)
+![Recommendation](docs/screenshots/06-investment-recommendation.png)
 
 Once the investigation is complete, the AI generates a structured investment report with executive summary, SWOT analysis, risks, confidence score, and final recommendation.
 
@@ -98,7 +98,7 @@ Once the investigation is complete, the AI generates a structured investment rep
 
 ## Export Report
 
-![Export](docs/screenshots/04-export-report.png)
+![Export](docs/screenshots/07-export-report.png)
 
 Users can export the generated investment report for future reference or sharing.
 
@@ -388,7 +388,7 @@ Before running the project, ensure the following are installed:
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/AI-investment-agent.git
+git clone https://github.com/akshat2508/AI-investment-agent.git
 
 cd AI-investment-agent
 ```
@@ -543,7 +543,7 @@ NVIDIA continues to maintain a dominant position in the AI infrastructure market
 
 ### Screenshot
 
-![NVIDIA Analysis](docs/screenshots/05-nvidia-analysis.png)
+![NVIDIA Analysis](docs/screenshots/08-nvidia-analysis.png)
 
 ---
 
@@ -565,7 +565,7 @@ Tesla demonstrates strong operational momentum with record vehicle deliveries an
 
 ### Screenshot
 
-![Tesla Analysis](docs/screenshots/06-tesla-analysis.png)
+![Tesla Analysis](docs/screenshots/09-tesla-analysis.png)
 
 ---
 
@@ -587,7 +587,7 @@ Apple remains one of the world's strongest technology companies with a highly pr
 
 ### Screenshot
 
-![Apple Analysis](docs/screenshots/07-apple-analysis.png)
+![Apple Analysis](docs/screenshots/10-apple-analysis.png)
 
 ---
 
