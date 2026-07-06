@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useTimeline = () => {
   const [events, setEvents] = useState([]);
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const source =new EventSource(`${API_URL}/api/timeline`);
