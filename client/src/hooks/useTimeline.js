@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 export const useTimeline = () => {
   const [events, setEvents] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const source = new EventSource("http://localhost:3000/api/timeline");
+    const source =new EventSource(`${API_URL}/api/timeline`);
 
     source.onmessage = (event) => {
       const data = JSON.parse(event.data);
