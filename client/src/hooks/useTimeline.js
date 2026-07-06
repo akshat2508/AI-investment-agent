@@ -5,7 +5,7 @@ export const useTimeline = () => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    const source =new EventSource(`${API_URL}/api/timeline`);
+    const source =new EventSource(`${API_URL}/timeline`);
 
     source.onmessage = (event) => {
       const data = JSON.parse(event.data);
