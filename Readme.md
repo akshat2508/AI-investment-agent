@@ -130,7 +130,7 @@ The project is built using a modern JavaScript stack focused on modularity, real
 | **Backend** | Node.js, Express.js |
 | **AI Workflow** | LangGraph.js |
 | **LLM** | Google Gemini 2.5 Flash |
-| **Financial Data** | Yahoo Finance API |
+| **Financial Data** | Financial Modeling Prep (FMP) API |
 | **Real-Time Updates** | Server-Sent Events (SSE) |
 | **Version Control** | Git & GitHub |
 
@@ -145,7 +145,7 @@ The technology choices were driven by the objective of building an AI-native res
 - **Framer Motion** is used to create meaningful animations that communicate the AI's execution state instead of purely decorative effects.
 - **LangGraph** orchestrates the research pipeline into independent, reusable workflow nodes.
 - **Google Gemini** generates structured investment reports with consistent JSON responses.
-- **Yahoo Finance API** supplies reliable company fundamentals and financial metrics.
+- **Financial Modeling Prep (FMP) API** provides company profiles, market data, and financial fundamentals through a production-ready REST API.
 - **Server-Sent Events (SSE)** stream the progress of each LangGraph node to the frontend in real time, allowing users to observe the AI investigation as it unfolds.
 
 
@@ -673,9 +673,9 @@ The quality of the final recommendation depends on the quality and completeness 
 
 ---
 
-## 4. Yahoo Finance as the Financial Data Source
+## 4. Financial Modeling Prep (FMP) as the Financial Data Source
 
-Yahoo Finance was selected as the primary source for company profiles and financial metrics.
+Financial Modeling Prep (FMP) was selected as the primary source for company profiles and financial metrics.
 
 ### Why?
 
