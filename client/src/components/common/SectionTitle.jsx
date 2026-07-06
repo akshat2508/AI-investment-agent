@@ -7,7 +7,7 @@ function SectionTitle({ index, total, title, subtitle }) {
       >
         {index} / {total}
       </span>
-      <h2 className="mt-1 text-xl font-semibold tracking-tight text-[#16181C]">
+      <h2 className="mt-1 text-xl font-semibold tracking-tight text-[#ffffff]">
         {title}
       </h2>
       <p className="mt-1 text-sm text-[#5B5D63]">{subtitle}</p>
